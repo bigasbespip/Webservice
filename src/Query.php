@@ -6,6 +6,7 @@ use ArrayObject;
 use Cake\Datasource\Exception\RecordNotFoundException;
 use Cake\Datasource\QueryInterface;
 use Cake\Datasource\QueryTrait;
+use Cake\Datasource\ResultSetInterface;
 use Cake\Utility\Hash;
 use IteratorAggregate;
 use JsonSerializable;
@@ -427,7 +428,11 @@ class Query implements IteratorAggregate, JsonSerializable, QueryInterface
             $this->_execute();
         }
 
-        return $this->__resultSet->total();
+        if ($this->__resultSet instanceof ResultSetInterface) {
+            return $this->__resultSet->total();
+        } else {
+            return 0;
+        }
     }
 
     /**
@@ -526,7 +531,7 @@ class Query implements IteratorAggregate, JsonSerializable, QueryInterface
      *
      * Part of JsonSerializable interface.
      *
-     * @return \Cake\Datasource\ResultSetInterface The data to convert to JSON.
+     * @return ResultSetInterface The data to convert to JSON.
      */
     public function jsonSerialize()
     {
