@@ -289,8 +289,7 @@ class Query implements IteratorAggregate, JsonSerializable, QueryInterface
      * Pages should start at 1.
      *
      * @param int $page The page number you want.
-     * @param int $limit The number of rows you want in the page. If null
-     *  the current limit clause will be used.
+     * @param int $limit The number of rows you want in the page. If null the current limit clause will be used.
      *
      * @return $this
      */

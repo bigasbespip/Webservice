@@ -26,6 +26,7 @@ interface WebserviceInterface
      * Returns a schema for the provided endpoint
      *
      * @param string $endpoint The endpoint to get the schema for
+     *
      * @return \Muffin\Webservice\Schema The schema to use
      */
     public function describe($endpoint);

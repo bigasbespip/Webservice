@@ -192,6 +192,7 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      * ```
      *
      * @param array $config Configuration options passed to the constructor
+     *
      * @return void
      */
     public function initialize(array $config)
@@ -202,6 +203,7 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      * Returns the endpoint name or sets a new one
      *
      * @param string|null $endpoint the new endpoint name
+     *
      * @return string
      */
     public function name($endpoint = null)
@@ -227,6 +229,7 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      * Returns the endpoint alias or sets a new one
      *
      * @param string|null $alias the new endpoint alias
+     *
      * @return string
      */
     public function alias($alias = null)
@@ -244,6 +247,7 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      * Alias a field with the endpoint's current alias.
      *
      * @param string $field The field to alias.
+     *
      * @return string The field prefixed with the endpoint alias.
      */
     public function aliasField($field)
@@ -255,6 +259,7 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      * Returns the endpoint registry key used to create this endpoint instance
      *
      * @param string|null $registryAlias the key used to access this object
+     *
      * @return string
      */
     public function registryAlias($registryAlias = null)
@@ -336,8 +341,8 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      * ```
      *
      * @param \Muffin\Webservice\Schema $schema The schema definition fetched from webservice.
+     *
      * @return \Muffin\Webservice\Schema the altered schema
-     * @api
      */
     protected function _initializeSchema(Schema $schema)
     {
@@ -351,6 +356,7 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      * using the Schema\Table instance.
      *
      * @param string $field The field to check for.
+     *
      * @return bool True if the field exists, false if it does not.
      */
     public function hasField($field)
@@ -364,6 +370,7 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      * Returns the primary key field name or sets a new one
      *
      * @param string|array|null $key sets a new name to be used as primary key
+     *
      * @return string|array
      */
     public function primaryKey($key = null)
@@ -390,6 +397,7 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      * Returns the display field or sets a new one
      *
      * @param string|null $key sets a new name to be used as display field
+     *
      * @return string
      */
     public function displayField($key = null)
@@ -421,8 +429,9 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      * a new one
      *
      * @param string|null $name the name of the class to use
-     * @throws \Muffin\Webservice\Exception\MissingResourceClassException when the entity class cannot be found
+     *
      * @return string
+     * @throws \Muffin\Webservice\Exception\MissingResourceClassException when the entity class cannot be found
      */
     public function resourceClass($name = null)
     {
@@ -497,6 +506,7 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      *
      * @param string $type the type of query to perform
      * @param array|\ArrayAccess $options An array that will be passed to Query::applyOptions()
+     *
      * @return \Muffin\Webservice\Query
      */
     public function find($type = 'all', $options = [])
@@ -514,6 +524,7 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      *
      * @param \Muffin\Webservice\Query $query The query to find with
      * @param array $options The options to use for the find
+     *
      * @return \Muffin\Webservice\Query The query builder
      */
     public function findAll(Query $query, array $options)
@@ -576,6 +587,7 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      *
      * @param \Muffin\Webservice\Query $query The query to find with
      * @param array $options The options for the find
+     *
      * @return \Muffin\Webservice\Query The query builder
      */
     public function findList(Query $query, array $options)
@@ -611,6 +623,7 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      * @param array $options the original options passed to a finder
      * @param array $keys the keys to check in $options to build matchers from
      * the associated value
+     *
      * @return array
      */
     protected function _setFieldMatchers($options, $keys)
@@ -654,8 +667,8 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      *
      * @param mixed $primaryKey primary key value to find
      * @param array|\ArrayAccess $options options accepted by `Endpoint::find()`
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException if the record with such id
-     * could not be found
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException if the record with such id could not be found
+     *
      * @return \Cake\Datasource\EntityInterface
      * @see \Cake\Datasource\RepositoryInterface::find()
      */
@@ -717,8 +730,8 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      *
      * @param array $search The criteria to find existing records by.
      * @param callable|null $callback A callback that will be invoked for newly
-     *   created entities. This callback will be called *before* the entity
-     *   is persisted.
+     *   created entities. This callback will be called *before* the entity is persisted.
+     *
      * @return \Cake\Datasource\EntityInterface An entity.
      */
     public function findOrCreate($search, callable $callback = null)
@@ -755,8 +768,8 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      * first load a collection of records and update them.
      *
      * @param array $fields A hash of field => new value.
-     * @param mixed $conditions Conditions to be used, accepts anything Query::where()
-     * can take.
+     * @param mixed $conditions Conditions to be used, accepts anything Query::where() can take.
+     *
      * @return int Count Returns the affected rows.
      */
     public function updateAll($fields, $conditions)
@@ -772,8 +785,7 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      * This method will *not* trigger beforeDelete/afterDelete events. If you
      * need those first load a collection of records and delete them.
      *
-     * @param mixed $conditions Conditions to be used, accepts anything Query::where()
-     * can take.
+     * @param mixed $conditions Conditions to be used, accepts anything Query::where() can take.
      *
      * @return int Count Returns the affected rows.
      *
@@ -875,6 +887,7 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      *
      * @param \Cake\Datasource\EntityInterface $resource The resource to remove.
      * @param array|\ArrayAccess $options The options for the delete.
+     *
      * @return bool success
      */
     public function delete(EntityInterface $resource, $options = [])
@@ -927,9 +940,9 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      *
      * @param string $method The method name that was fired.
      * @param array $args List of arguments passed to the function.
+     *
      * @return mixed
-     * @throws \BadMethodCallException when there are missing arguments, or when
-     *  and & or are combined.
+     * @throws \BadMethodCallException when there are missing arguments, or when and & or are combined.
      */
     protected function _dynamicFinder($method, $args)
     {
@@ -990,6 +1003,7 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      *
      * @param string $method name of the method to be invoked
      * @param array $args List of arguments passed to the function
+     *
      * @return mixed
      * @throws \BadMethodCallException
      */
@@ -1007,11 +1021,9 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
     /**
      * Get the object used to marshal/convert array data into objects.
      *
-     * Override this method if you want a endpoint object to use custom
-     * marshalling logic.
+     * Override this method if you want a endpoint object to use custom marshalling logic.
      *
      * @return \Muffin\Webservice\Marshaller
-     *
      * @see \Muffin\Webservice\Marshaller
      */
     public function marshaller()
@@ -1058,8 +1070,7 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      * $article = $this->Articles->patchEntity($article, $this->request->data());
      * ```
      *
-     * @param \Cake\Datasource\EntityInterface $entity the resource that will get the
-     * data merged in
+     * @param \Cake\Datasource\EntityInterface $entity the resource that will get the data merged in
      * @param array $data key value list of fields to be merged into the resource
      * @param array $options A list of options for the object hydration.
      *
@@ -1084,8 +1095,7 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      * $article = $this->Articles->patchEntities($articles, $this->request->data());
      * ```
      *
-     * @param array|\Traversable $entities the entities that will get the
-     * data merged in
+     * @param array|\Traversable $entities the entities that will get the data merged in
      * @param array $data list of arrays to be merged into the entities
      * @param array $options A list of options for the objects hydration.
      *
@@ -1152,6 +1162,7 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      * {@inheritDoc}
      *
      * @param \Cake\Datasource\RulesChecker $rules The rules object to be modified.
+     *
      * @return \Cake\Datasource\RulesChecker
      */
     public function buildRules(RulesChecker $rules)

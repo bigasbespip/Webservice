@@ -37,6 +37,7 @@ class EndpointRegistry
      * Remove a specific endpoint instance from the registry by alias
      *
      * @param string $alias String alias of the endpoint
+     *
      * @return void
      */
     public static function remove($alias)

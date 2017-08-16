@@ -43,6 +43,7 @@ class Marshaller
      *
      * @param array $data The data to hydrate.
      * @param array $options List of options
+     *
      * @return \Muffin\Webservice\Model\Resource
      * @see \Muffin\Webservice\Model\Endpoint::newEntity()
      */
@@ -100,6 +101,7 @@ class Marshaller
      * @param array $data The data to validate.
      * @param array $options The options passed to this marshaller.
      * @param bool $isNew Whether it is a new entity or one to be updated.
+     *
      * @return array The list of validation errors.
      * @throws \RuntimeException If no validator can be created.
      */
@@ -128,6 +130,7 @@ class Marshaller
      *
      * @param array $data The data to prepare.
      * @param array $options The options passed to this marshaller.
+     *
      * @return array An array containing prepared data and options.
      */
     protected function _prepareDataAndOptions($data, $options)
@@ -157,6 +160,7 @@ class Marshaller
      *
      * @param array $data The data to hydrate.
      * @param array $options List of options
+     *
      * @return array An array of hydrated records.
      * @see \Muffin\Webservice\Model\Endpoint::newEntities()
      */
@@ -184,10 +188,10 @@ class Marshaller
      *   the accessible fields list in the entity will be used.
      * * accessibleFields: A list of fields to allow or deny in entity accessible fields.
      *
-     * @param \Cake\Datasource\EntityInterface $entity the entity that will get the
-     * data merged in
+     * @param \Cake\Datasource\EntityInterface $entity the entity that will get the data merged in
      * @param array $data key value list of fields to be merged into the entity
      * @param array $options List of options.
+     *
      * @return \Cake\Datasource\EntityInterface
      */
     public function merge(EntityInterface $entity, array $data, array $options = [])
@@ -252,10 +256,10 @@ class Marshaller
      *   the accessible fields list in the entity will be used.
      * - accessibleFields: A list of fields to allow or deny in entity accessible fields.
      *
-     * @param array|\Traversable $entities the entities that will get the
-     *   data merged in
+     * @param array|\Traversable $entities the entities that will get the data merged in
      * @param array $data list of arrays to be merged into the entities
      * @param array $options List of options.
+     *
      * @return array
      */
     public function mergeMany($entities, array $data, array $options = [])

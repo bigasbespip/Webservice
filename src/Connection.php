@@ -13,7 +13,9 @@ class Connection
      * Constructor
      *
      * @param array $config Custom configuration.
-     * @throws \Muffin\Webservice\Exception\UnexpectedDriverException If the driver is not an instance of `Muffin\Webservice\Driver\AbstractDriver`.
+     *
+     * @throws \Muffin\Webservice\Exception\UnexpectedDriverException If the driver is not an
+     * instance of `Muffin\Webservice\Driver\AbstractDriver`.
      */
     public function __construct($config)
     {
@@ -32,6 +34,7 @@ class Connection
      * Validates certain custom configuration values.
      *
      * @param array $config Raw custom configuration.
+     *
      * @return array
      * @throws \Muffin\Webservice\Exception\MissingConnectionException If the connection does not exist.
      * @throws \Muffin\Webservice\Exception\MissingDriverException If the driver does not exist.
@@ -56,6 +59,7 @@ class Connection
      *
      * @param string $method Method name.
      * @param array $args Arguments to pass-through
+     *
      * @return mixed
      */
     public function __call($method, $args)

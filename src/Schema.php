@@ -2,6 +2,8 @@
 
 namespace Muffin\Webservice;
 
+use Cake\Database\Type;
+
 /**
  * Represents a single endpoint in a database schema.
  *
@@ -154,6 +156,7 @@ class Schema
      *
      * @param string $name The name of the column
      * @param array $attrs The attributes for the column.
+     *
      * @return $this
      */
     public function addColumn($name, $attrs)
@@ -186,6 +189,7 @@ class Schema
      * Get column data in the endpoint.
      *
      * @param string $name The column name.
+     *
      * @return array|null Column data or null.
      */
     public function column($name)
@@ -205,6 +209,7 @@ class Schema
      *
      * @param string $name The column to get the type of.
      * @param string $type The type to set the column to.
+     *
      * @return string|null Either the column type or null.
      */
     public function columnType($name, $type = null)
@@ -226,6 +231,7 @@ class Schema
      * based upon.
      *
      * @param string $column The column name to get the base type from
+     *
      * @return string The base type name
      */
     public function baseColumnType($column)
@@ -299,8 +305,8 @@ class Schema
     /**
      * Get the column(s) used for the primary key.
      *
-     * @return array Column name(s) for the primary key. An
-     *   empty list will be returned when the endpoint has no primary key.
+     * @return array Column name(s) for the primary key. An empty list will be returned when
+     * the endpoint has no primary key.
      */
     public function primaryKey()
     {
@@ -322,6 +328,7 @@ class Schema
      * Endpoint options allow you to set platform specific endpoint level options.
      *
      * @param array|null $options The options to set, or null to read options.
+     *
      * @return $this|array Either the endpoint instance, or an array of options when reading.
      */
     public function options($options = null)
