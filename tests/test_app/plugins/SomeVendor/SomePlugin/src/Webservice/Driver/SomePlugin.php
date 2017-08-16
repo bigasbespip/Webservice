@@ -1,7 +1,7 @@
 <?php
 namespace SomeVendor\SomePlugin\Webservice\Driver;
 
-use Muffin\Webservice\AbstractDriver;
+use Muffin\Webservice\Driver\AbstractDriver;
 
 class SomePlugin extends AbstractDriver
 {

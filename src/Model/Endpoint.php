@@ -272,9 +272,9 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
     /**
      * Set the driver to use
      *
-     * @param \Muffin\Webservice\AbstractDriver|null $connection The driver to use
+     * @param \Muffin\Webservice\Driver\AbstractDriver|null $connection The driver to use
      *
-     * @return \Muffin\Webservice\AbstractDriver
+     * @return \Muffin\Webservice\Driver\AbstractDriver
      */
     public function connection($connection = null)
     {

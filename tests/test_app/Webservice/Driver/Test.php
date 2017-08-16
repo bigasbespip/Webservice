@@ -2,7 +2,7 @@
 
 namespace Muffin\Webservice\Test\test_app\Webservice\Driver;
 
-use Muffin\Webservice\AbstractDriver;
+use Muffin\Webservice\Driver\AbstractDriver;
 use Muffin\Webservice\Test\test_app\Webservice\EndpointTestWebservice;
 
 class Test extends AbstractDriver

@@ -1,12 +1,11 @@
 <?php
-namespace Muffin\Webservice;
+namespace Muffin\Webservice\Driver;
 
 use Cake\Core\App;
 use Cake\Core\InstanceConfigTrait;
 use Cake\Utility\Inflector;
 use Muffin\Webservice\Exception\MissingWebserviceClassException;
 use Muffin\Webservice\Exception\UnimplementedWebserviceMethodException;
-use Muffin\Webservice\Webservice\Webservice;
 use Muffin\Webservice\Webservice\WebserviceInterface;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;

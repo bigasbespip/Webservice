@@ -3,16 +3,13 @@
 namespace Muffin\Webservice\Webservice;
 
 use Cake\Core\App;
-use Cake\Core\Configure;
-use Cake\Datasource\ConnectionInterface;
 use Cake\Utility\Inflector;
 use Cake\Utility\Text;
-use Muffin\Webservice\AbstractDriver;
+use Muffin\Webservice\Driver\AbstractDriver;
 use Muffin\Webservice\Exception\MissingEndpointSchemaException;
 use Muffin\Webservice\Exception\UnimplementedWebserviceMethodException;
 use Muffin\Webservice\Model\Endpoint;
 use Muffin\Webservice\Query;
-use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -26,7 +23,7 @@ abstract class Webservice implements WebserviceInterface
     /**
      * The driver to use to communicate with the webservice
      *
-     * @var \Muffin\Webservice\AbstractDriver
+     * @var \Muffin\Webservice\Driver\AbstractDriver
      */
     protected $_driver;
 
@@ -73,9 +70,9 @@ abstract class Webservice implements WebserviceInterface
     /**
      * Set the driver to use
      *
-     * @param \Muffin\Webservice\AbstractDriver|null $driver The driver to use
+     * @param \Muffin\Webservice\Driver\AbstractDriver|null $driver The driver to use
      *
-     * @return \Muffin\Webservice\AbstractDriver|$this
+     * @return \Muffin\Webservice\Driver\AbstractDriver|$this
      */
     public function driver(AbstractDriver $driver = null)
     {

@@ -9,5 +9,5 @@ class UnexpectedDriverException extends Exception
     /**
      * {@inheritDoc}
      */
-    protected $_messageTemplate = 'Driver (`%s`) should extend `Muffin\Webservice\AbstractDriver`';
+    protected $_messageTemplate = 'Driver (`%s`) should extend `Muffin\Webservice\Driver\AbstractDriver`';
 }

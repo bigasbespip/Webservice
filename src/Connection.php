@@ -2,6 +2,7 @@
 namespace Muffin\Webservice;
 
 use Cake\Core\App;
+use Muffin\Webservice\Driver\AbstractDriver;
 use Muffin\Webservice\Exception\MissingConnectionException;
 use Muffin\Webservice\Exception\MissingDriverException;
 use Muffin\Webservice\Exception\UnexpectedDriverException;
@@ -12,7 +13,7 @@ class Connection
      * Constructor
      *
      * @param array $config Custom configuration.
-     * @throws \Muffin\Webservice\Exception\UnexpectedDriverException If the driver is not an instance of `Muffin\Webservice\AbstractDriver`.
+     * @throws \Muffin\Webservice\Exception\UnexpectedDriverException If the driver is not an instance of `Muffin\Webservice\Driver\AbstractDriver`.
      */
     public function __construct($config)
     {

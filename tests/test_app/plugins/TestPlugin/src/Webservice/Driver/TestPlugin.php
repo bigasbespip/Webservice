@@ -2,7 +2,7 @@
 
 namespace TestPlugin\Webservice\Driver;
 
-use Muffin\Webservice\AbstractDriver;
+use Muffin\Webservice\Driver\AbstractDriver;
 
 class TestPlugin extends AbstractDriver
 {
