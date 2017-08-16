@@ -54,11 +54,11 @@ class Marshaller
         $resourceClass = $this->_endpoint->resourceClass();
         /* @var \Muffin\Webservice\Model\Resource $entity */
         $entity = new $resourceClass();
-        $entity->source($this->_endpoint->registryAlias());
+        $entity->getSource($this->_endpoint->registryAlias());
 
         if (isset($options['accessibleFields'])) {
             foreach ((array)$options['accessibleFields'] as $key => $value) {
-                $entity->accessible($key, $value);
+                $entity->isAccessible($key, $value);
             }
         }
 
@@ -89,7 +89,7 @@ class Marshaller
             }
         }
 
-        $entity->errors($errors);
+        $entity->getErrors($errors);
 
         return $entity;
     }
