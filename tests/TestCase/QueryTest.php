@@ -5,6 +5,7 @@ namespace Muffin\Webservice\Test\TestCase;
 use Cake\TestSuite\TestCase;
 use Muffin\Webservice\Model\Endpoint;
 use Muffin\Webservice\Model\Resource;
+use Muffin\Webservice\Pagination;
 use Muffin\Webservice\Query;
 use Muffin\Webservice\ResultSet;
 use Muffin\Webservice\Test\test_app\Webservice\StaticWebservice;
@@ -185,7 +186,7 @@ class QueryTest extends TestCase
                     'id' => 3,
                     'title' => 'Webservices'
                 ])
-            ], 3)));
+            ], new Pagination(['count' => 3]))));
         $this->query->webservice($mockWebservice);
 
         $this->query->execute();

@@ -4,6 +4,7 @@ namespace Muffin\Webservice\Test\TestCase;
 
 use Cake\TestSuite\TestCase;
 use Muffin\Webservice\Model\Resource;
+use Muffin\Webservice\Pagination;
 use Muffin\Webservice\ResultSet;
 
 class ResultSetTest extends TestCase
@@ -36,8 +37,7 @@ class ResultSetTest extends TestCase
                     'title' => 'Webservices'
                 ])
             ],
-            6,
-            ['count' => 6, 'prevPage' => false, 'nextPage' => false]
+            new Pagination(['count' => 6, 'current' => 6])
         );
     }
 
@@ -65,7 +65,24 @@ class ResultSetTest extends TestCase
 
     public function testPagination()
     {
-        $this->assertEquals(['count' => 6, 'prevPage' => false, 'nextPage' => false], $this->resultSet->pagination());
+        $expected = [
+            'finder' => 'all',
+            'page' => 1,
+            'current' => 6,
+            'count' => 6,
+            'perPage' => 20,
+            'prevPage' => false,
+            'nextPage' => false,
+            'pageCount' => 1,
+            'sort' => null,
+            'direction' => false,
+            'limit' => null,
+            'sortDefault' => false,
+            'directionDefault' => false,
+            'scope' => null
+        ];
+
+        $this->assertEquals($expected, $this->resultSet->pagination());
     }
 
     /**

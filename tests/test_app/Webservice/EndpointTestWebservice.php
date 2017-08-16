@@ -3,6 +3,7 @@
 namespace Muffin\Webservice\Test\test_app\Webservice;
 
 use Muffin\Webservice\Model\Resource;
+use Muffin\Webservice\Pagination;
 use Muffin\Webservice\Query;
 use Muffin\Webservice\ResultSet;
 use Muffin\Webservice\Schema;
@@ -67,12 +68,12 @@ class EndpointTestWebservice extends Webservice
             $index = $this->conditionsToIndex($query->where());
 
             if (!isset($this->resources[$index])) {
-                return new ResultSet([], 0);
+                return new ResultSet([], new Pagination());
             }
 
             return new ResultSet([
                 $this->resources[$index]
-            ], 1);
+            ], new Pagination(['count' => 1]));
         }
         if (isset($query->where()[$query->endpoint()->aliasField('title')])) {
             $resources = [];
@@ -85,10 +86,10 @@ class EndpointTestWebservice extends Webservice
                 $resources[] = $resource;
             }
 
-            return new ResultSet($resources, count($resources));
+            return new ResultSet($resources, new Pagination(['count' => count($resources)]));
         }
 
-        return new ResultSet($this->resources, count($this->resources));
+        return new ResultSet($this->resources, new Pagination(['count' => count($this->resources)]));
     }
 
     protected function _executeUpdateQuery(Query $query, array $options = [])

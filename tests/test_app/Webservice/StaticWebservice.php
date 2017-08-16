@@ -3,6 +3,7 @@
 namespace Muffin\Webservice\Test\test_app\Webservice;
 
 use Muffin\Webservice\Model\Resource;
+use Muffin\Webservice\Pagination;
 use Muffin\Webservice\Query;
 use Muffin\Webservice\ResultSet;
 use Muffin\Webservice\Schema;
@@ -26,7 +27,7 @@ class StaticWebservice implements WebserviceInterface
                 'id' => 3,
                 'title' => 'Webservices'
             ])
-        ], 3);
+        ], new Pagination(['count' => 3]));
     }
 
     public function describe($endpoint)

@@ -32,16 +32,9 @@ class ResultSet implements ResultSetInterface
     protected $_results = [];
 
     /**
-     * Total number of records
-     *
-     * @var int
-     */
-    protected $_total;
-
-    /**
      * Array of pagination data
      *
-     * @var array
+     * @var \Muffin\Webservice\PaginationInterface
      */
     protected $_pagination;
 
@@ -49,13 +42,11 @@ class ResultSet implements ResultSetInterface
      * Construct the ResultSet
      *
      * @param array $resources The resources to attach
-     * @param int $total The total amount of resources available
-     * @param array $pagination Array of pagination data
+     * @param \Muffin\Webservice\PaginationInterface $pagination An object of pagination data
      */
-    public function __construct(array $resources, $total = null, array $pagination = [])
+    public function __construct(array $resources, PaginationInterface $pagination)
     {
         $this->_results = \SplFixedArray::fromArray($resources, false);
-        $this->_total = $total;
         $this->_pagination = $pagination;
     }
 
@@ -140,7 +131,7 @@ class ResultSet implements ResultSetInterface
      */
     public function total()
     {
-        return $this->_total;
+        return $this->_pagination->getTotal();
     }
 
     /**
@@ -150,6 +141,6 @@ class ResultSet implements ResultSetInterface
      */
     public function pagination()
     {
-        return $this->_pagination;
+        return $this->_pagination->getPagingParams();
     }
 }
