@@ -78,7 +78,7 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      *
      * @var string
      */
-    protected $_endpoint;
+    protected $_name;
 
     /**
      * The name of the field that represents the primary key in the endpoint
@@ -135,7 +135,7 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
             $this->displayField($config['displayField']);
         }
         if (!empty($config['endpoint'])) {
-            $this->endpoint($config['endpoint']);
+            $this->name($config['endpoint']);
         }
         $eventManager = null;
         if (!empty($config['eventManager'])) {
@@ -204,12 +204,12 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      * @param string|null $endpoint the new endpoint name
      * @return string
      */
-    public function endpoint($endpoint = null)
+    public function name($endpoint = null)
     {
         if ($endpoint !== null) {
-            $this->_endpoint = $endpoint;
+            $this->_name = $endpoint;
         }
-        if ($this->_endpoint === null) {
+        if ($this->_name === null) {
             $endpoint = namespaceSplit(get_class($this));
             $endpoint = substr(end($endpoint), 0, -8);
 
@@ -217,10 +217,10 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
             if (empty($endpoint)) {
                 $endpoint = $this->alias();
             }
-            $this->_endpoint = Inflector::underscore($endpoint);
+            $this->_name = Inflector::underscore($endpoint);
         }
 
-        return $this->_endpoint;
+        return $this->_name;
     }
 
     /**
@@ -304,14 +304,14 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
             if ($this->_schema === null) {
                 $this->_schema = $this->_initializeSchema(
                     $this->webservice()
-                        ->describe($this->endpoint())
+                        ->describe($this->name())
                 );
             }
 
             return $this->_schema;
         }
         if (is_array($schema)) {
-            $schema = new Schema($this->endpoint(), $schema);
+            $schema = new Schema($this->name(), $schema);
         }
 
         return $this->_schema = $schema;
@@ -465,7 +465,7 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
     {
         if ((is_string($webservice)) || ($this->_webservice === null)) {
             if ($webservice === null) {
-                $webservice = $this->endpoint();
+                $webservice = $this->name();
             }
 
             $connection = $this->connection();
@@ -1171,7 +1171,7 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
         return [
             'registryAlias' => $this->registryAlias(),
             'alias' => $this->alias(),
-            'endpoint' => $this->endpoint(),
+            'endpoint' => $this->name(),
             'resourceClass' => $this->resourceClass(),
             'defaultConnection' => $this->defaultConnectionName(),
             'connectionName' => $conn ? $conn->configName() : null

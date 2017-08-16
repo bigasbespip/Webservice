@@ -224,7 +224,7 @@ class Query implements IteratorAggregate, JsonSerializable, QueryInterface
         }
         throw new RecordNotFoundException(sprintf(
             'Record not found in endpoint "%s"',
-            $this->repository()->endpoint()
+            $this->repository()->name()
         ));
     }
 
