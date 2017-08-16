@@ -79,7 +79,7 @@ class Marshaller
 
         if (!isset($options['fieldList'])) {
             $entity->set($properties);
-            $entity->errors($errors);
+            $entity->setErrors($errors);
 
             return $entity;
         }
@@ -90,7 +90,7 @@ class Marshaller
             }
         }
 
-        $entity->getErrors($errors);
+        $entity->setErrors($errors);
 
         return $entity;
     }
@@ -226,7 +226,7 @@ class Marshaller
 
         if (!isset($options['fieldList'])) {
             $entity->set($properties);
-            $entity->errors($errors);
+            $entity->setErrors($errors);
 
             return $entity;
         }
@@ -237,7 +237,7 @@ class Marshaller
             }
         }
 
-        $entity->errors($errors);
+        $entity->setErrors($errors);
 
         return $entity;
     }
