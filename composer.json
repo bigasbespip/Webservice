@@ -29,6 +29,11 @@
             "role": "Author"
         },
         {
+            "name": "David Yell",
+            "homepage": "https://github.com/davidyell",
+            "role": "Author"
+        },
+        {
             "name": "Others",
             "homepage": "https://github.com/usemuffin/webservice/graphs/contributors"
         }
