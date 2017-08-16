@@ -32,7 +32,7 @@ abstract class Webservice implements WebserviceInterface
      *
      * @var string
      */
-    protected $_endpoint;
+    protected $_endpointPath;
 
     /**
      * A list of nested resources with their path and needed conditions
@@ -52,7 +52,7 @@ abstract class Webservice implements WebserviceInterface
             $this->driver($config['driver']);
         }
         if (!empty($config['endpoint'])) {
-            $this->endpoint($config['endpoint']);
+            $this->endpointPath($config['endpoint']);
         }
 
         $this->initialize();
@@ -92,13 +92,13 @@ abstract class Webservice implements WebserviceInterface
      *
      * @return string|$this
      */
-    public function endpoint($endpoint = null)
+    public function endpointPath($endpoint = null)
     {
         if ($endpoint === null) {
-            return $this->_endpoint;
+            return $this->_endpointPath;
         }
 
-        $this->_endpoint = $endpoint;
+        $this->_endpointPath = $endpoint;
 
         return $this;
     }
@@ -346,7 +346,7 @@ abstract class Webservice implements WebserviceInterface
     {
         return [
             'driver' => $this->driver(),
-            'endpoint' => $this->endpoint(),
+            'endpoint' => $this->endpointPath(),
         ];
     }
 }

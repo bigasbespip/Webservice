@@ -38,7 +38,7 @@ class WebserviceTest extends TestCase
         ]);
 
         $this->assertEquals($testDriver, $webservice->driver());
-        $this->assertEquals('test', $webservice->endpoint());
+        $this->assertEquals('test', $webservice->endpointPath());
     }
 
     public function testNestedResources()
@@ -204,7 +204,7 @@ class WebserviceTest extends TestCase
     {
         $this->assertEquals([
             'driver' => $this->webservice->driver(),
-            'endpoint' => $this->webservice->endpoint()
+            'endpoint' => $this->webservice->endpointPath()
         ], $this->webservice->__debugInfo());
     }
 
