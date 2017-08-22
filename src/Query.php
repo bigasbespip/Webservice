@@ -489,7 +489,7 @@ class Query implements IteratorAggregate, JsonSerializable, QueryInterface
     /**
      * Executes this query and returns a traversable object containing the results
      *
-     * @return \Traversable
+     * @return \Muffin\Webservice\ResultSet
      */
     protected function _execute()
     {
