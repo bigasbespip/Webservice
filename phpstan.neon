@@ -1,3 +1,4 @@
 parameters:
     ignoreErrors:
         - '#Call to an undefined method object::errors()#'
+        - '#Invalid array key type array|string#'

@@ -119,7 +119,7 @@ class Marshaller
         }
         if (!is_object($validator)) {
             throw new RuntimeException(
-                sprintf('validate must be a boolean, a string or an object. Got %s.', gettype($validator))
+                sprintf('Validate must be a boolean, a string or an object. Got %s.', gettype($validator))
             );
         }
 

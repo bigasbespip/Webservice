@@ -603,11 +603,13 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      */
     public function setResourceClass($name)
     {
-        $this->_resourceClass = App::className($name, 'Model/Resource');
+        $resourceClass = App::className($name, 'Model/Resource');
 
-        if (!$this->_resourceClass) {
+        if (!$resourceClass) {
             throw new MissingResourceClassException([$name]);
         }
+
+        $this->_resourceClass = $resourceClass;
 
         return $this->_resourceClass;
     }
@@ -964,7 +966,7 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
      * @param callable|null $callback A callback that will be invoked for newly
      *   created entities. This callback will be called *before* the entity
      *   is persisted.
-     * @return \Cake\Datasource\EntityInterface An entity.
+     * @return \Cake\Datasource\EntityInterface|bool An entity.
      */
     public function findOrCreate($search, callable $callback = null)
     {

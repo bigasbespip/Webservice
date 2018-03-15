@@ -298,7 +298,7 @@ class Query implements IteratorAggregate, JsonSerializable, QueryInterface
      * @param int $page The page number you want.
      * @param int $limit The number of rows you want in the page. If null
      *  the current limit clause will be used.
-     * @return $this
+     * @return $this|mixed
      */
     public function page($page = null, $limit = null)
     {
@@ -327,7 +327,7 @@ class Query implements IteratorAggregate, JsonSerializable, QueryInterface
      * ```
      *
      * @param int $limit number of records to be returned
-     * @return $this
+     * @return $this|mixed
      */
     public function limit($limit = null)
     {
@@ -503,7 +503,12 @@ class Query implements IteratorAggregate, JsonSerializable, QueryInterface
             return new $decorator($this->__resultSet);
         }
 
-        return $this->__resultSet = $this->_webservice->execute($this);
+        $results = $this->_webservice->execute($this);
+        if ($results instanceof \Traversable) {
+            $this->__resultSet = $results;
+        }
+
+        return $this->__resultSet;
     }
 
     /**

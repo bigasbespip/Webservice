@@ -245,7 +245,7 @@ abstract class Webservice implements WebserviceInterface
      *
      * @param \Muffin\Webservice\Query $query The query to execute
      * @param array $options The options to use
-     * @return bool|void
+     * @return bool
      * @throws \Muffin\Webservice\Exception\UnimplementedWebserviceMethodException When this method has not been
      * implemented into userland classes
      */
@@ -262,7 +262,7 @@ abstract class Webservice implements WebserviceInterface
      *
      * @param \Muffin\Webservice\Query $query The query to execute
      * @param array $options The options to use
-     * @return \Muffin\Webservice\ResultSet|bool|void
+     * @return \Muffin\Webservice\ResultSet|bool
      * @throws \Muffin\Webservice\Exception\UnimplementedWebserviceMethodException When this method has not been
      * implemented into userland classes
      */
@@ -279,7 +279,7 @@ abstract class Webservice implements WebserviceInterface
      *
      * @param \Muffin\Webservice\Query $query The query to execute
      * @param array $options The options to use
-     * @return int|bool|void
+     * @return int|bool
      * @throws \Muffin\Webservice\Exception\UnimplementedWebserviceMethodException When this method has not been
      * implemented into userland classes
      */
@@ -296,7 +296,7 @@ abstract class Webservice implements WebserviceInterface
      *
      * @param \Muffin\Webservice\Query $query The query to execute
      * @param array $options The options to use
-     * @return int|bool|void
+     * @return int|bool
      * @throws \Muffin\Webservice\Exception\UnimplementedWebserviceMethodException When this method has not been
      * implemented into userland classes
      */
