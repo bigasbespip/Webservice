@@ -106,24 +106,20 @@ class Marshaller
      */
     protected function _validate($data, $options, $isNew)
     {
-        if (!$options['validate']) {
-            return [];
-        }
-
         $validator = null;
+
         if ($options['validate'] === true) {
             $validator = $this->_endpoint->getValidator('default');
         } elseif (is_string($options['validate'])) {
             $validator = $this->_endpoint->getValidator($options['validate']);
-        } else {
-            $validator = $options['validator'];
+        } elseif (is_object($options['validate'])) {
+            $validator = $options['validate'];
         }
 
-        if (!is_callable([$validator, 'errors'])) {
-            throw new RuntimeException(sprintf(
-                '"validate" must be a boolean, a string or an object with method "errors()". Got %s instead.',
-                gettype($options['validate'])
-            ));
+        if ($validator === null) {
+            throw new RuntimeException(
+                sprintf('validate must be a boolean, a string or an object. Got %s.', gettype($options['validate']))
+            );
         }
 
         return $validator->errors($data, $isNew);
