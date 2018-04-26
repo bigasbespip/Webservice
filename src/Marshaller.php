@@ -106,6 +106,10 @@ class Marshaller
      */
     protected function _validate($data, $options, $isNew)
     {
+        if (!$options['validate']) {
+            return [];
+        }
+
         $validator = null;
 
         if ($options['validate'] === true) {
