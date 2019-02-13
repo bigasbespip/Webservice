@@ -118,6 +118,16 @@ abstract class AbstractDriver implements LoggerAwareInterface
     }
 
     /**
+     * Returns a logger instance
+     *
+     * @return \Psr\Log\LoggerInterface
+     */
+    public function getLogger()
+    {
+        return $this->logger;
+    }
+
+    /**
      * Returns the connection name used in the configuration
      *
      * @return string
@@ -131,7 +141,7 @@ abstract class AbstractDriver implements LoggerAwareInterface
      * Enables or disables query logging for this driver
      *
      * @param bool|null $enable whether to turn logging on or disable it. Use null to read current value.
-     * 
+     *
      * @return bool
      */
     public function logQueries($enable = null)
@@ -141,6 +151,36 @@ abstract class AbstractDriver implements LoggerAwareInterface
         }
 
         $this->_logQueries = $enable;
+    }
+
+/**
+     * Enable/disable query logging
+     *
+     * @return $this
+     */
+    public function enableQueryLogging()
+    {
+        $this->_logQueries = true;
+        return $this;
+    }
+    /**
+     * Disable query logging
+     *
+     * @return $this
+     */
+    public function disableQueryLogging()
+    {
+        $this->_logQueries = false;
+        return $this;
+    }
+    /**
+     * Check if query logging is enabled.
+     *
+     * @return bool
+     */
+    public function isQueryLoggingEnabled()
+    {
+        return $this->_logQueries;
     }
 
     /**
