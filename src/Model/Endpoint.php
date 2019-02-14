@@ -1188,4 +1188,27 @@ class Endpoint implements RepositoryInterface, EventListenerInterface, EventDisp
             'connectionName' => $conn ? $conn->configName() : null
         ];
     }
+
+    /**
+     * Set the endpoint alias
+     *
+     * @param string $alias Alias for this endpoint
+     * @return $this
+     */
+    public function setAlias($alias)
+    {
+        $this->_alias = $alias;
+
+        return $this;
+    }
+
+    /**
+     * Get the endpoint alias
+     *
+     * @return string
+     */
+    public function getAlias()
+    {
+        return $this->_alias;
+    }
 }
